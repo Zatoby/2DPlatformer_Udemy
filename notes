@@ -1,0 +1,28 @@
+GODOT
+
+Project -> Project Settings -> Input Map
+    -> add any new name
+    -> add any amount of inputs for name
+
+Project -> Project Settings -> Display -> Window
+    -> width/height sets camera width/height
+    -> test width/height sets window size
+
+Project -> Project Settings -> Display -> 2D
+    -> Use Gpu Pixel Snap -> On
+
+SHORTCUTS
+
+ctrl + f1-4 -> switch between 2d/3d/script/assetlib
+
+GDSCRIPT:
+f1 -> open manual
+
+func _process(delta):
+# delta -> number of seconds passed since last frame
+
+KinematicBody2D
+move_and_slide(Vector2(x, y)) -> automatically takes delta into account
+Vector2.ZERO == Vector2(0, 0)
+
+lerp() -> frame rate dependand
