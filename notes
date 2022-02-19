@@ -11,6 +11,11 @@ Project -> Project Settings -> Display -> Window
 Project -> Project Settings -> Display -> 2D
     -> Use Gpu Pixel Snap -> On
 
+
+# If >>Font oversampling does not work in "Viewport"<<... error
+Project -> Project Settings -> Rendering -> Quality
+    -> Dynamic Fonts -> Use Oversampling
+
 SHORTCUTS
 
 ctrl + f1-4 -> switch between 2d/3d/script/assetlib
