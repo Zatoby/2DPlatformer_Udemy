@@ -16,6 +16,13 @@ Project -> Project Settings -> Display -> 2D
 Project -> Project Settings -> Rendering -> Quality
     -> Dynamic Fonts -> Use Oversampling
 
+layer vs mask
+layer -> what layer does the object exist in
+mask -> what layers does it check against for the collision
+
+Scene -> New Inherited Scene
+    -> create "child-scene"
+
 SHORTCUTS
 
 ctrl + f1-4 -> switch between 2d/3d/script/assetlib
@@ -38,3 +45,36 @@ lerp() -> frame rate dependand
 enum -> syntax: enum 'name' { possibilities... }
 # transfers enum value to variable
 export -> syntax export('enum') var 'variable'
+
+match -> switch
+
+
+
+CODE
+
+---fix for jerky camera
+I found a fix for this, i was getting the same issues.
+In the gamecamera.gd file.
+
+Added these two variables.
+var cameraPositionX : int
+
+var cameraPositionY : int
+
+
+Then inside the _process(delta) function
+
+# change for pixel based movement smooth,
+
+# Added cameraPosition Variables, and replaced the line below to do each co-ord seperatly
+
+# global_position = lerp(targetPosition, global_position, pow(2, -15 * delta))
+
+# Thanks to: https://www.youtube.com/watch?v=Wbw5EmYDtWI
+
+cameraPositionX = int(lerp(targetPosition.x, global_position.x, pow(2, -15 * delta)))
+
+cameraPositionY = int(lerp(targetPosition.y, global_position.y, pow(2, -15 * delta)))
+
+global_position = Vector2(cameraPositionX,cameraPositionY)
+---
